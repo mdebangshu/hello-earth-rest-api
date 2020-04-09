@@ -2,14 +2,14 @@ apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
   labels:
-    app: hello-world-rest-api
-  name: hello-world-rest-api
+    app: hello-earth-rest-api
+  name: hello-earth-rest-api
   namespace: default
 spec:
   replicas: 2
   selector:
     matchLabels:
-      app: hello-world-rest-api
+      app: hello-earth-rest-api
   strategy:
     rollingUpdate:
       maxSurge: 25%
@@ -18,12 +18,12 @@ spec:
   template:
     metadata:
       labels:
-        app: hello-world-rest-api
+        app: hello-earth-rest-api
     spec:
       containers:
-      - image: in28min/hello-world-rest-api:0.0.2.RELEASE
+      - image: mdebangshu/hello-earth-rest-api:0.0.1.RELEASE
         imagePullPolicy: IfNotPresent
-        name: hello-world-rest-api
+        name: hello-earth-rest-api
       restartPolicy: Always
       terminationGracePeriodSeconds: 30
 ---
@@ -31,8 +31,8 @@ apiVersion: v1
 kind: Service
 metadata:
   labels:
-    app: hello-world-rest-api
-  name: hello-world-rest-api
+    app: hello-earth-rest-api
+  name: hello-earth-rest-api
   namespace: default
 spec:
   ports:
@@ -41,6 +41,6 @@ spec:
     protocol: TCP
     targetPort: 8080
   selector:
-    app: hello-world-rest-api
+    app: hello-earth-rest-api
   sessionAffinity: None
   type: LoadBalancer
