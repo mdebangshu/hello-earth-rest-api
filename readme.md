@@ -68,3 +68,18 @@ watch -n 0.1 curl http://35.193.70.17:8080/hello-earth
 
 kubectl logs -f <pod_id>
 
+kubectl get deployments -o yaml
+
+kubectl get services -o yaml
+
+kubectl set image deployment hello-earth-rest-api hello-earth-rest-api=gcr.io/sb-ito-services-1000153237/hello-earth-rest-api:0.0.1-SNAPSHOT --record
+
+kubectl rollout history deployment hello-earth-rest-api
+
+kubectl get pods -o wide
+
+kubectl get events --sort-by=.metadata.creationTimestamp
+
+kubectl delete all -l app=hello-earth-rest-api
+
+gcloud container clusters resize sb-cog-cluster --zone us-central1-c --num-nodes=0
