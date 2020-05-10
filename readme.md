@@ -1,4 +1,4 @@
-# Hello Earth Rest API
+# Google Kubernetes Practice : Hello Earth Rest API
 
 ## Running the Application
 
